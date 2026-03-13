@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Isabelly faz 9 </title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Fredoka:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            background-image: url(ket.jpeg);
+            font-family: 'Fredoka', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+
+        /* CELULAR */
+
+        .celular {
+
+            width: 360px;
+            height: 720px;
+
+            background: black;
+
+            border-radius: 40px;
+
+            padding: 12px;
+
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+        /* NOTCH */
+
+        .notch {
+
+            width: 140px;
+            height: 22px;
+
+            background: black;
+
+            position: absolute;
+
+            top: 0;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            border-radius: 0 0 15px 15px;
+
+            z-index: 10;
+
+        }
+
+        /* TELAS */
+
+        .tela,
+        .app {
+
+            width: 100%;
+            height: 100%;
+
+            border-radius: 30px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            color: white;
+            padding-top: 60px;
+
+        }
+
+        /* FUNDO ESPACIAL */
+
+
+
+        .topo,
+        .nome,
+        .info,
+        .foto,
+        button {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ESTRELAS */
+
+        .estrelas {
+
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            background-image: url("ket2.jpeg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            opacity: 0.4;
+
+        }
+
+
+
+        .conteudo {
+
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        /* PRESENTE */
+
+        .presente {
+
+            font-size: 90px;
+            cursor: pointer;
+
+            animation: pular 1s infinite;
+
+        }
+
+        @keyframes pular {
+
+            0% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-15px)
+            }
+
+            100% {
+                transform: translateY(0)
+            }
+
+        }
+
+        /* FOTO */
+
+
+
+
+        /* TEXTOS */
+
+        .topo {
+
+            font-family: 'Orbitron', sans-serif;
+            font-size: 22px;
+
+        }
+
+        .nome {
+
+            font-family: 'Orbitron', sans-serif;
+
+            font-size: 32px;
+
+            margin-top: 10px;
+
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #a200ff,
+                0 0 20px #6a00ff;
+
+        }
+
+        .info {
+
+            margin-top: 10px;
+
+            font-size: 18px;
+
+        }
+
+        /* BOTÃO */
+
+        button {
+
+            margin-top: 25px;
+
+            background: #ff3cff;
+
+            border: none;
+
+            padding: 15px 30px;
+
+            font-size: 18px;
+
+            color: white;
+
+            border-radius: 30px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+        }
+
+        button:hover {
+
+            transform: scale(1.05);
+
+        }
+
+        /* FOGUETE */
+
+        .foguete {
+
+            position: absolute;
+
+            bottom: -100px;
+
+            left: -50px;
+
+            font-size: 40px;
+
+            animation: foguete 12s linear infinite;
+
+        }
+
+        @keyframes foguete {
+
+            0% {
+                transform: translate(0, 0)
+            }
+
+            100% {
+                transform: translate(500px, -700px)
+            }
+
+        }
+
+        .contador {
+
+            margin-top: 20px;
+            font-size: 18px;
+
+            font-family: 'Orbitron', sans-serif;
+
+        }
+
+        #tempo {
+
+            margin-top: 10px;
+
+            font-size: 22px;
+
+            color: #ff4df2;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="celular">
+
+        <div class="notch"></div>
+
+        <!-- TELA PRESENTE -->
+
+        <div class="tela" id="abrir">
+
+            <h2>Você recebeu um convite!</h2>
+
+            <div class="presente" onclick="abrirConvite()">
+                🎁
+            </div>
+
+            <p>Toque no presente</p>
+
+        </div>
+
+
+        <!-- CONVITE -->
+
+        <div class="app" id="convite" style="display:none">
+
+            <div class="estrelas"></div>
+
+            <div class="foguete">🚀</div>
+
+            <div class="topo">
+
+                Vem comemorar meu aniversário!
+
+            </div>
+
+
+            <div class="nome">
+
+                Isabelly
+
+            </div>
+
+            <div class="info">
+
+                🎉 9 anos<br><br>
+
+                📅 15 de Março<br>
+                ⏰ 15:30 <br>
+                📍 Mundo Animal, Av. Rio das Pedras, 3500 - Jardim Aricanduva
+
+            </div>
+            <div class="contador">
+
+                ⏳ Falta para a festa:
+
+                <div id="tempo"></div>
+
+            </div>
+            <br><br>
+            <button onclick="confirmar()">
+
+                Confirmar Presença 🎉
+
+            </button>
+
+            <audio id="musica" loop>
+                <source src="musica.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+
+
+    </div>
+
+    </div>
+
+    <audio id="musica" loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+
+        function abrirConvite() {
+
+            document.getElementById("abrir").style.display = "none"
+            document.getElementById("convite").style.display = "flex"
+
+            document.getElementById("musica").play()
+
+        }
+        function abrirConvite() {
+
+            document.getElementById("abrir").style.display = "none";
+            document.getElementById("convite").style.display = "block";
+
+            let musica = document.getElementById("musica");
+            musica.play();
+
+        }
+
+
+        function confirmar() {
+
+            let telefone = "5511964281806"
+
+            let mensagem = "Olá! Estou confirmando presença no aniversário da Belly 🎉"
+
+            let link = "https://wa.me/" + telefone + "?text=" + encodeURIComponent(mensagem)
+
+            window.open(link)
+
+        }
+        const dataFesta = new Date("Mar 15, 2026 18:00:00").getTime();
+
+        const contador = setInterval(function () {
+
+            const agora = new Date().getTime();
+
+            const distancia = dataFesta - agora;
+
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+            document.getElementById("tempo").innerHTML =
+                dias + "d " +
+                horas + "h " +
+                minutos + "m " +
+                segundos + "s ";
+
+        }, 1000);
+
+
+
+    </script>
+
+</body>
+
+</html>
